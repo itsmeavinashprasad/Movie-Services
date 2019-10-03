@@ -73,4 +73,10 @@ public class MovieController {
         }
         return responseEntity;
     }
+
+    @GetMapping("movieByTitle/{title}")
+    public ResponseEntity<?> findMovieByTitle(@PathVariable title){
+        ResponseEntity responseEntity;
+        return new ResponseEntity<List<Movie>(movieService.findMovieByTitle(title), HttpStatus.OK);
+    }
 }
