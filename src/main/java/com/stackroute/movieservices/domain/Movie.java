@@ -16,9 +16,11 @@ public class Movie {
     private String title;
 
     @JsonProperty(value = "vote_average")
+    @Column(name = "vote_average")
     private float voteAverage;
 
     @JsonProperty(value = "release_date")
+    @Column(name = "release_date")
     private String releaseDate;
 
     @JsonProperty(value = "adult")
