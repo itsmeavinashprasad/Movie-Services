@@ -50,6 +50,7 @@ public class MovieController {
 
     @GetMapping(value = "movies")
     public ResponseEntity<?> getAllMovies(){
+        System.out.println("getAllMovies() called");
         return new ResponseEntity<List<Movie>>(movieService.getAllMovies(), HttpStatus.OK);
     }
 
@@ -75,8 +76,8 @@ public class MovieController {
     }
 
     @GetMapping("movieByTitle/{title}")
-    public ResponseEntity<?> findMovieByTitle(@PathVariable title){
+    public ResponseEntity<?> findMovieByTitle(@PathVariable String title){
         ResponseEntity responseEntity;
-        return new ResponseEntity<List<Movie>(movieService.findMovieByTitle(title), HttpStatus.OK);
+        return new ResponseEntity<List<Movie>>(movieService.findByTitle(title), HttpStatus.OK);
     }
 }
