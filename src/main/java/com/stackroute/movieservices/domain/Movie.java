@@ -2,31 +2,40 @@ package com.stackroute.movieservices.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.persistence.*;
 
 @Entity
+@ApiModel(description = "All details about the Movie")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @JsonProperty(value = "id")
+    @ApiModelProperty(value = "Movie Id")
     private int id;
 
     @JsonProperty(value = "title")
+    @ApiModelProperty(value = "Movie Title")
     private String title;
 
     @JsonProperty(value = "vote_average")
     @Column(name = "vote_average")
+    @ApiModelProperty(value = "Movie average voted rating")
     private float voteAverage;
 
     @JsonProperty(value = "release_date")
     @Column(name = "release_date")
+    @ApiModelProperty(value = "Movie release date")
     private String releaseDate;
 
     @JsonProperty(value = "adult")
+    @ApiModelProperty(value = "Movie rating adult or not")
     private Boolean adult;
 
     @JsonProperty(value = "overview")
+    @ApiModelProperty(value = "Movie Overview")
     private String overview;
 
     public Movie() {
