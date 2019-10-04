@@ -7,12 +7,13 @@ import com.stackroute.movieservices.exceptions.MovieException;
 import com.stackroute.movieservices.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Primary
+@Profile("main")
 public class MovieServiceImpl implements MovieService {
 
     private MovieRepository movieRepository;

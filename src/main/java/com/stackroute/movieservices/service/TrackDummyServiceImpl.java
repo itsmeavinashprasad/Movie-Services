@@ -3,12 +3,13 @@ package com.stackroute.movieservices.service;
 import com.stackroute.movieservices.domain.Movie;
 import com.stackroute.movieservices.exceptions.MovieException;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Qualifier("dummy")
+@Profile("dummy")
 public class TrackDummyServiceImpl implements MovieService {
     @Override
     public Movie saveMovie(Movie movie) throws MovieException {
