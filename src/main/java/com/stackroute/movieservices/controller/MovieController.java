@@ -41,7 +41,9 @@ public class MovieController {
         ResponseEntity responseEntity;
         try{
             System.out.println("deleteMovie(): id = "+ id);
-            responseEntity = new ResponseEntity<Movie>(movieService.deleteMovie(id), HttpStatus.NO_CONTENT);
+            Movie movie = movieService.deleteMovie(id);
+            System.out.println("deleteMovie(): "+movie.toString());
+            return new ResponseEntity<Movie>(movie, HttpStatus.OK);
         }catch (Exception e){
             responseEntity = new ResponseEntity<CustomErrors>(new CustomErrors(e.getMessage(), HttpStatus.NOT_FOUND), HttpStatus.NOT_FOUND);
         }
