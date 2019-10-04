@@ -1,9 +1,7 @@
 package com.stackroute.movieservices.controller;
 
 import com.stackroute.movieservices.domain.Movie;
-import com.stackroute.movieservices.errors.CustomErrors;
 import com.stackroute.movieservices.exceptions.MovieException;
-import com.stackroute.movieservices.exceptions.MovieNotFoundException;
 import com.stackroute.movieservices.service.MovieService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,7 +37,7 @@ public class MovieController {
     @DeleteMapping(value = "movie/{id}")
     public ResponseEntity<?> deleteMovie(@PathVariable int id) throws MovieException{
         System.out.println("deleteMovie(): id = "+ id);
-        return new ResponseEntity<Movie>(movieService.deleteMovie(id), HttpStatus.NO_CONTENT);
+        return new ResponseEntity<Movie>(movieService.deleteMovie(id), HttpStatus.OK);
     }
 
     @ApiOperation(value = "List of All movies present in the Database")

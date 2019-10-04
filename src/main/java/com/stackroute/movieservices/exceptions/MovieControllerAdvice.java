@@ -1,13 +1,11 @@
-package com.stackroute.movieservices.exceptionhandler;
+package com.stackroute.movieservices.exceptions;
 
 import com.stackroute.movieservices.errors.CustomErrors;
-import com.stackroute.movieservices.exceptions.MovieAlreadyExistsException;
-import com.stackroute.movieservices.exceptions.MovieException;
-import com.stackroute.movieservices.exceptions.MovieNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class MovieControllerAdvice {
@@ -24,5 +22,10 @@ public class MovieControllerAdvice {
         return new ResponseEntity<CustomErrors>(new CustomErrors(httpError, HttpStatus.NOT_FOUND), HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<?> movieNotFoundExceptionHandler(Exception e){
+        String httpError = e.getClass().toString()+": "+e.getMessage();
+        return new ResponseEntity<CustomErrors>(new CustomErrors(httpError, HttpStatus.INTERNAL_SERVER_ERROR), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
 }
