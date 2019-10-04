@@ -1,6 +1,5 @@
-package com.stackroute.movieservices.controller;
+package com.stackroute.movieservices.exceptions;
 
-import com.stackroute.movieservices.exceptions.MovieException;
 
 public class MovieAlreadyExistsException extends MovieException {
     public MovieAlreadyExistsException(String message) {

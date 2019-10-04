@@ -1,6 +1,5 @@
-package com.stackroute.movieservices.controller;
+package com.stackroute.movieservices.exceptions;
 
-import com.stackroute.movieservices.exceptions.MovieException;
 
 public class MovieNotFoundException extends MovieException {
     public MovieNotFoundException(String message) {

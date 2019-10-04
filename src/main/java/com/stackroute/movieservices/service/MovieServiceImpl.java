@@ -1,7 +1,7 @@
 package com.stackroute.movieservices.service;
 
-import com.stackroute.movieservices.controller.MovieAlreadyExistsException;
-import com.stackroute.movieservices.controller.MovieNotFoundException;
+import com.stackroute.movieservices.exceptions.MovieAlreadyExistsException;
+import com.stackroute.movieservices.exceptions.MovieNotFoundException;
 import com.stackroute.movieservices.domain.Movie;
 import com.stackroute.movieservices.exceptions.MovieException;
 import com.stackroute.movieservices.repository.MovieRepository;
