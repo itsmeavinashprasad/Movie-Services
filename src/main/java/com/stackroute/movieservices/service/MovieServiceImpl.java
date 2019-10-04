@@ -43,7 +43,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie updateMovie(Movie movie) {
-        Movie newMovie = movieRepository.getOne(movie.getId());
+        Movie newMovie = movieRepository.findById(movie.getId()).get();
         if(movie.getTitle() != null){
             newMovie.setTitle(movie.getTitle());
         }
