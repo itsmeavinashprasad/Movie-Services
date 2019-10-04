@@ -4,11 +4,19 @@ package com.stackroute.movieservices.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @ApiModel(description = "All details about the Movie")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,65 +46,7 @@ public class Movie {
     @ApiModelProperty(value = "Movie Overview")
     private String overview;
 
-    public Movie() {
-    }
-    public Movie(int id, String title, float voteAverage, String releaseDate, Boolean adult, String overview) {
-        this.id = id;
-        this.title = title;
-        this.voteAverage = voteAverage;
-        this.releaseDate = releaseDate;
-        this.adult = adult;
-        this.overview = overview;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-        System.out.println("Title " + title);
-    }
-
-    public void setVoteAverage(float voteAverage) {
-        this.voteAverage = voteAverage;
-    }
-
-    public void setReleaseDate(String releaseDate) {
-        this.releaseDate = releaseDate;
-    }
-
-    public void setAdult(Boolean adult) {
-        this.adult = adult;
-    }
-
-    public void setOverview(String overview) {
-        this.overview = overview;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public float getVoteAverage() {
-        return voteAverage;
-    }
-
-    public String getReleaseDate() {
-        return releaseDate;
-    }
-
-    public Boolean getAdult() {
-        return adult;
-    }
-
-    public String getOverview() {
-        return overview;
-    }
 
     @Override
     public String toString() {
