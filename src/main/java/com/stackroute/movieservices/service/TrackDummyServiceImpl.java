@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-@Profile("dummy")
 public class TrackDummyServiceImpl implements MovieService {
     @Override
     public Movie saveMovie(Movie movie) throws MovieException {
