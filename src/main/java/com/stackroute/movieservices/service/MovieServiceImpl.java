@@ -55,7 +55,7 @@ public class MovieServiceImpl implements MovieService {
     public Movie updateMovie(Movie movie) throws MovieException{
         if(!movieRepository.existsById(movie.getId()))
             throw new MovieNotFoundException("updateMovie(): Movie[id="+movie.getId()+"] does not exist in database");
-        Movie newMovie = movieRepository.getOne(movie.getId());
+        Movie newMovie = movieRepository.findById(movie.getId()).get();
         if(movie.getTitle() != null){
             newMovie.setTitle(movie.getTitle());
         }

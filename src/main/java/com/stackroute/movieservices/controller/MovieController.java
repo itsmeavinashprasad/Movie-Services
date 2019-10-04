@@ -47,7 +47,7 @@ public class MovieController {
         ResponseEntity responseEntity;
         try{
             System.out.println("deleteMovie(): id = "+ id);
-            responseEntity = new ResponseEntity<Movie>(movieService.deleteMovie(id), HttpStatus.NO_CONTENT);
+            responseEntity = new ResponseEntity<Movie>(movieService.deleteMovie(id), HttpStatus.OK);
         }catch (MovieException e){
             String httpError = e.getClass().toString()+": "+e.getMessage();
             responseEntity = new ResponseEntity<CustomErrors>(new CustomErrors(httpError, HttpStatus.CONFLICT), HttpStatus.CONFLICT);
