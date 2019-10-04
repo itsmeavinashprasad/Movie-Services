@@ -6,7 +6,7 @@
     <artifactId>movie-service</artifactId>
     <name>movie-service</name>
     <version>1.0.0</version>
-    <packaging>pom</packaging>
+<!--    <packaging>pom</packaging>-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

@@ -3,14 +3,34 @@ package com.stackroute.movieservices.seeddata;
 import com.stackroute.movieservices.domain.Movie;
 import com.stackroute.movieservices.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
+@PropertySource(value = "classpath:application.properties")
 public class PreFillCommandLineRunner implements CommandLineRunner {
 
     @Autowired
     private MovieRepository movieRepository;
+
+
+    @Value("${title}")
+    private String title;
+
+    @Value("${voteAverage}")
+    private float voteAverage;
+
+    @Value("${releaseDate}")
+    private String releaseDate;
+
+    @Value("${adult}")
+    private boolean adult;
+
+    @Value("${overview}")
+    private String overview;
     
     @Override
     public void run(String... args) throws Exception {
@@ -19,7 +39,7 @@ public class PreFillCommandLineRunner implements CommandLineRunner {
                 4,
                 "Movie 4",
                 (float) 7.4,
-                "5009-04-04",
+                "2009-04-04",
                 true,
                 "Overview 4"
         ));
@@ -28,7 +48,7 @@ public class PreFillCommandLineRunner implements CommandLineRunner {
                 5,
                 "Movie 5",
                 (float) 7.5,
-                "5009-05-05",
+                "2009-05-05",
                 true,
                 "Overview 5"
         ));
@@ -36,9 +56,17 @@ public class PreFillCommandLineRunner implements CommandLineRunner {
                 6,
                 "Movie 6",
                 (float) 7.6,
-                "5009-06-06",
+                "2009-06-06",
                 false,
                 "Overview 6"
+        ));
+        movieRepository.save(new Movie(
+                0,
+                title,
+                voteAverage,
+                releaseDate,
+                adult,
+                overview
         ));
     }
 }
