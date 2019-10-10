@@ -11,7 +11,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.util.List;
 
 @SpringBootApplication
-@EnableJpaRepositories("com.stackroute.movieservices.repository")
 public class MovieServicesApplication {
 
 	public static void main(String[] args) {
