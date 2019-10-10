@@ -59,7 +59,7 @@ public class MovieController {
     }
 
     @ApiOperation(value = "Get information about a Movie providing its movie_id")
-    @GetMapping(value = "movie/{id}")
+    @GetMapping(value = "movie/{id:[0-9]+}")
     public ResponseEntity<?> getMovieById(@PathVariable int id){
         try{
             return new ResponseEntity<Movie>(movieService.getMovie(id), HttpStatus.OK);
@@ -82,7 +82,7 @@ public class MovieController {
     }
 
     @ApiOperation(value = "List of all movies of given title")
-    @GetMapping("movieByTitle/{title}")
+    @GetMapping("movie/{title:[a-zA-Z][a-zA-Z0-9\\s]+}")
     public ResponseEntity<?> findMovieByTitle(@PathVariable String title){
         ResponseEntity responseEntity;
         return new ResponseEntity<List<Movie>>(movieService.findByTitle(title), HttpStatus.OK);
