@@ -60,7 +60,7 @@ public class MovieController {
     }
 
     @ApiOperation(value = "List of all movies of given title")
-    @GetMapping("movie/{title:[a-zA-Z][a-zA-Z0-9]+}")
+    @GetMapping("movie/{title:[a-zA-Z][a-zA-Z0-9\\s]+}")
     public ResponseEntity<?> findMovieByTitle(@PathVariable String title){
         return new ResponseEntity<List<Movie>>(movieService.findByTitle(title), HttpStatus.OK);
     }
