@@ -23,7 +23,7 @@ public class MovieControllerAdvice {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> movieNotFoundExceptionHandler(Exception e){
+    public ResponseEntity<?> interServerErrorExceptionHandler(Exception e){
         String httpError = e.getClass().toString()+": "+e.getMessage();
         return new ResponseEntity<CustomErrors>(new CustomErrors(httpError, HttpStatus.INTERNAL_SERVER_ERROR), HttpStatus.INTERNAL_SERVER_ERROR);
     }
