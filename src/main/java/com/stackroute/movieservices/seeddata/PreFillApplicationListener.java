@@ -15,7 +15,6 @@ public class PreFillApplicationListener implements ApplicationListener<ContextRe
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        System.out.println("-> Pre-Fill using ApplicationListener<ContextRefreshedEvent>");
         movieRepository.save(new Movie(
                 1,
                 "Movie 1",

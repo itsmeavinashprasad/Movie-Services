@@ -29,14 +29,12 @@ public class MovieController {
     @ApiOperation(value = "Add a Movie")
     @PostMapping(value = "movie")
     public ResponseEntity<?> saveMovie(@RequestBody Movie movie) throws MovieException {
-        System.out.println("saveMovie(): "+ movie.toString());
         return new ResponseEntity<Movie>(movieService.saveMovie(movie), HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "Delete a Movie from Database using movie_id")
     @DeleteMapping(value = "movie/{id}")
     public ResponseEntity<?> deleteMovie(@PathVariable int id) throws MovieException{
-        System.out.println("deleteMovie(): id = "+ id);
         return new ResponseEntity<Movie>(movieService.deleteMovie(id), HttpStatus.OK);
     }
 
@@ -55,7 +53,6 @@ public class MovieController {
     @ApiOperation(value = "Update information of a Movie")
     @PutMapping(value = "movie")
     public ResponseEntity<?> updateMovie(@RequestBody Movie movie) throws MovieException{
-            System.out.println("updateMovie(): "+ movie.toString());
             return new ResponseEntity<Movie>(movieService.updateMovie(movie), HttpStatus.OK);
     }
 

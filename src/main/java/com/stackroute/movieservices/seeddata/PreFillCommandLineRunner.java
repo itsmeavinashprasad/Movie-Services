@@ -34,7 +34,6 @@ public class PreFillCommandLineRunner implements CommandLineRunner {
     
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("-> Pre-Fill using CommandLineRunner");
         movieRepository.save(new Movie(
                 4,
                 "Movie 4",
